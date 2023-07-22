@@ -23,15 +23,15 @@ async function main() {
         bookListElement.innerHTML = "";
 
         booksData.forEach(book => {
-            // Create a new list item for each book
+
             let listItem = document.createElement("li");
 
-            // Create a text input for the quantity of the book
+
             let quantityInput = document.createElement("input");
             quantityInput.type = "number";
             quantityInput.value = book.quantity || 0; // Set the initial value from the book quantity (if available)
 
-            // Create a submit button for updating the quantity
+
             let submitButton = document.createElement("button");
             submitButton.textContent = "Update";
             submitButton.addEventListener("click", async () => {
@@ -40,8 +40,8 @@ async function main() {
 
                 // Send the updated quantity to the server
                 try {
-                    let updateResponse = await fetch('http://localhost:3001/updateQuantity', {
-                        method: "POST",
+                    let updateResponse = await fetch('http://localhost:3001/updateBook', {
+                        method: "PATCH",
                         headers: {
                             'Content-Type': 'application/json'
                         },
